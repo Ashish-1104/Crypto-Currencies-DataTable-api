@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
@@ -22,11 +25,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
 
 
-    
     <style>
-
         /* .con{
             border:1px solid black;
             overflow-x:auto;
@@ -35,34 +37,36 @@
             width:500px;
         }
         .bg{ */
-            /* width:100vh;
+        /* width:100vh;
             width:100vw; */
-            /* position:absolute; */
-            /* font-size:4rem;
+        /* position:absolute; */
+        /* font-size:4rem;
             color:rgb(211, 211, 211);
             Z-index:-1;
             white-space: nowrap;
             font-family: 'Manrope', sans-serif;
             word-spacing:45px;
             line-height: 1; */
-            /* overflow: hidden; */
+        /* overflow: hidden; */
         /* }
         .conatainer{
             Z-index:2;
         } */
     </style>
 </head>
+
 <body>
 
     <div class="head">
-        <h1>CoinRate</h1>
+        <h1>Coin Rate</h1>
     </div>
-    
+
     <div class="container">
 
 
         <div class="page">
-            <p class="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem animi voluptatem impedit nesciunt dolor aliquid voluptas? Ratione recusandae earum alias voluptas ipsum ipsam, nesciunt fugit sint. Culpa ad facilis natus.</p>
+            <p class="info">Get realtime price of various Crypto currencies, e.g., bitcoin, ethereum, dogecoin, polygon,
+                solana, etc.</p>
             <div class="cryptoTable">
                 <table class="coinTable">
                     <thead>
@@ -78,20 +82,20 @@
                     </thead>
                     <tbody>
                         <tr></tr>
-                            <!-- <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr> -->
                     </tbody>
                 </table>
+                <div class="changeTable">
+                    <button class="first_page">
+                        << </button>
+                            <button class="previous">Previous</button>
+                            <button class="next">Next</button>
+                            <button class="last_page">>></button>
+                </div>
             </div>
         </div>
 
-                <div class="background">
+
+        <div class="background">
             <p>bitcoin ethereum polygon dogecoin solona</p>
             <p>bitcoin ethereum polygon dogecoin solona</p>
             <p>bitcoin ethereum polygon dogecoin solona</p>
@@ -100,8 +104,9 @@
         </div>
     </div>
     <div class="footer">
-        <h2>data from coingecko</h2>
+        <h2>Data from <a href="https://www.coingecko.com/" target="_blank">coingecko<img src="images/new_tab.png"></a></h2>
     </div>
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
