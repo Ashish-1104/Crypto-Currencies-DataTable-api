@@ -1,0 +1,119 @@
+*{
+    /* background:red; */
+    border:1px black solid;
+    /* border: */
+}
+body{
+    margin:0px;
+    padding:0px;
+}
+.head{
+    width:100%;
+    height: 12vh;
+    color:white;
+    background-color:darkblue;
+}
+.background{
+    width:100%;
+    height: 70%;
+    top:30%;
+    font-size:4.2rem;
+    color:rgb(211, 211, 211);
+    Z-index:-1;
+    white-space: nowrap;
+    font-family: 'Manrope', sans-serif;
+    word-spacing:45px;
+    line-height: 1;
+    border:red 5px solid;
+    padding:0px;
+    z-index: -1;
+}
+.background p{
+    margin:50px 0%;
+}
+.page{
+    height:82vh;
+    width:500px;
+    position:absolute;
+    border:green 5px solid;
+    left:50%;
+    transform: translateX(-50%);
+    
+}
+.container{
+    height:82vh;
+    border:greenyellow 5px solid;
+
+    /* position:relative; */
+}
+
+.info{
+    height:10%;
+    border:gold 5px solid;
+    margin:0;
+}
+.cryptoTable{
+    
+    height:90%;
+    border:deeppink 5px solid;
+    margin:0;
+}
+.footer{
+    color:white;
+    background:green;
+}
+
+
+
+img{
+    height:25px;
+    width:25px;
+}
+
+.coinTable{
+    align-items: center;
+    justify-content:center;
+    border: 1px solid black;
+    border-collapse:collapse;
+    min-height:300px;
+    width:auto;
+
+}
+.coinTable tr{
+    /* display:flex; */
+    align-items: center;
+    vertical-align:center;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:bold;
+    font-size:1.115rem;
+    /* border: 2px solid blue; */
+    /* column-gap:10px; */
+
+}
+td{
+    border:1px solid black;
+    padding:10px;
+}
+tr>:nth-child(3){
+    text-transform: uppercase;
+    font-weight:bolder;
+}
+tbody>:nth-child(even){
+    background:#FFF6BD;
+}
+tbody>:nth-child(odd){
+    color:black;
+    background:#CEEDC7;
+}
+.coinTable th{
+    min-width:100px;
+    background:black;
+    color:white;
+    font-size:23px;
+    font-weight: bold;
+    font-family: 'Poppins',sans-serif;
+    /* letter-spacing: 2px; */
+    padding:10px;
+    border: 1px solid white;
+}
