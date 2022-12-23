@@ -51,8 +51,7 @@ first_page.addEventListener("click", async () => {
     if (clicks === 1) {
         await getData()
     }
-    clicks--
-    await getData();
+    clicks--;
     pageno.value = 1;
 })
 
