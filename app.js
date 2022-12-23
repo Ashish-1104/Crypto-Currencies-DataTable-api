@@ -7,15 +7,20 @@ let coinGekuUrl = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=us
 let usd, eur, inr;
 let page = 1;
 let rows = 10;
+let clicks = 0;
 let add = document.querySelector(".coinTable");
 previous.addEventListener("click", async () => {
+
     if (page > 1) {
         page--;
-        for (var i = rows; i > 0; i--) {
-            // console.log(i);
-            add.deleteRow(i);
+        clicks++;
+
+        await deleteTable();
+
+        if (clicks === 1) {
+            await getData()
         }
-        await getData()
+        clicks--;
         pageno.value--;
     }
 })
@@ -23,28 +28,44 @@ previous.addEventListener("click", async () => {
 next.addEventListener("click", async () => {
     if (page < 100 / rows) {
         page++;
-        for (var i = rows; i > 0; i--) {
-            // console.log(i);
-            add.deleteRow(i);
+        clicks++;
+
+        await deleteTable();
+
+        if (clicks === 1) {
+            await getData()
         }
-        await getData()
+        clicks--;
         pageno.value++;
     }
 });
 
+
+
 first_page.addEventListener("click", async () => {
     page = 1;
+    clicks++;
 
-    for (var i = rows; i > 0; i--)
-        add.deleteRow(i);
+    await deleteTable();
+
+    if (clicks === 1) {
+        await getData()
+    }
+    clicks--;
     await getData();
     pageno.value = 1;
 })
 
 last_page.addEventListener("click", async () => {
     page = 10;
-    for (var i = rows; i > 0; i--)
-        add.deleteRow(i);
+    clicks++;
+
+    await deleteTable();
+
+    if (clicks === 1) {
+        await getData()
+    }
+    clicks--;
     await getData();
     pageno.value = 10;
 })
@@ -52,12 +73,21 @@ last_page.addEventListener("click", async () => {
 pageno.addEventListener("keydown", async (keypress) => {
     if (keypress.key == 'Enter' && (Number(pageno.value) > 0 && Number(pageno.value) <= 10)) {
         page = pageno.value;
-        for (var i = rows; i > 0; i--)
-            add.deleteRow(i);
+        if (add.rows.length === 12) {
+            for (var i = rows; i > 0; i--) {
+                add.deleteRow(i);
+            }
+        }
         await getData();
 
     }
 })
+
+async function deleteTable() {
+    for (var i = add.rows.length - 2; i > 0; i--) {
+        add.deleteRow(i);
+    }
+}
 
 function genTable() {
 
