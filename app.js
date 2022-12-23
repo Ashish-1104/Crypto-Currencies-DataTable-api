@@ -2,46 +2,63 @@ let previous = document.querySelector(".previous");
 let next = document.querySelector(".next");
 let first_page = document.querySelector(".first_page");
 let last_page = document.querySelector(".last_page");
+let pageno = document.querySelector(".pageno");
 let coinGekuUrl = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${rows}&page=1&sparkline=false";
 let usd, eur, inr;
 let page = 1;
-let rows=10;
+let rows = 10;
 let add = document.querySelector(".coinTable");
-previous.addEventListener("click",async () => {
+previous.addEventListener("click", async () => {
     if (page > 1) {
         page--;
         for (var i = rows; i > 0; i--) {
             // console.log(i);
             add.deleteRow(i);
         }
-       await getData()
+        await getData()
+        pageno.value--;
     }
 })
 
-next.addEventListener("click", async() => {
-    if (page < 100/rows) {
+next.addEventListener("click", async () => {
+    if (page < 100 / rows) {
         page++;
         for (var i = rows; i > 0; i--) {
             // console.log(i);
             add.deleteRow(i);
         }
-       await getData()
+        await getData()
+        pageno.value++;
     }
 });
 
-first_page.addEventListener("click",async()=>{
-    page=1;
-    for(var i=rows;i>0;i--)
+first_page.addEventListener("click", async () => {
+    page = 1;
+
+    for (var i = rows; i > 0; i--)
         add.deleteRow(i);
     await getData();
+    pageno.value = 1;
 })
 
-last_page.addEventListener("click",async()=>{
-    page=10;
-    for(var i=rows;i>0;i--)
+last_page.addEventListener("click", async () => {
+    page = 10;
+    for (var i = rows; i > 0; i--)
         add.deleteRow(i);
     await getData();
+    pageno.value = 10;
 })
+
+pageno.addEventListener("keydown", async (keypress) => {
+    if (keypress.key == 'Enter' && (Number(pageno.value) > 0 && Number(pageno.value) <= 10)) {
+        page = pageno.value;
+        for (var i = rows; i > 0; i--)
+            add.deleteRow(i);
+        await getData();
+
+    }
+})
+
 function genTable() {
 
     for (var i = 0; i < rows; i++) {
@@ -58,18 +75,18 @@ function genTable() {
         icon.innerHTML = `<img src=${usd[i].image}>`;
         symbol.innerHTML = usd[i].symbol;
         name.innerHTML = usd[i].name;
-        dol.innerHTML = "$ "+usd[i].current_price;
-        euro.innerHTML = "€ "+eur[i].current_price;
-         rup.innerHTML = "₹ "+inr[i].current_price;
+        dol.innerHTML = "$ " + usd[i].current_price;
+        euro.innerHTML = "€ " + eur[i].current_price;
+        rup.innerHTML = "₹ " + inr[i].current_price;
     }
 
 }
 
 let getData = async () => {
 
-    let crypto=document.querySelector(".coinTable");
-    let load=document.createElement("img")
-    load.src="images/loading.gif";
+    let crypto = document.querySelector(".coinTable");
+    let load = document.createElement("img")
+    load.src = "images/loading.gif";
     load.classList.add("loadingGif");
     crypto.appendChild(load);
     await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${rows}&page=${page}&sparkline=false`)
@@ -97,7 +114,7 @@ let getData = async () => {
         .then((data) => {
             inr = data;
         })
-        load.remove();
+    load.remove();
 
     genTable();
 }
